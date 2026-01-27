@@ -80,4 +80,8 @@ weighted avg       0.74      0.67      0.68        96
 
 AUC: 0.7247474747474747
 
+A1: MRI CNN SL (baseline)
+
+1 párrafo
+1 figura opcional (arquitectura)
 
