@@ -1,0 +1,13 @@
+#gitignore
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+# Ignore virtual environment folders
+venv/
+env/
+# Ignore data files
+results/
+cpp/
+BreastDCEDL_ISPY2_min_crop/

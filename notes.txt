@@ -1,0 +1,41 @@
+# Define object of the Train, Validation, and Test dataset.
+#In order to download this folder you need to follow these transformations
+
+
+#DATALOADER
+
+# Import and load Train, Validation and Test set
+# Print shape of Dataset
+
+
+# Define Architecture For BreastCancer Model
+#params
+# Create instantiation of Network class
+# Model Summary for CNN_BrestCancer
+#Loss function definition
+#Optimizer definition
+
+#TRAINING AND VALIDATION FUNCTIONS
+#learning rate
+#loss value
+#loss and performance for each epoch
+
+#training function
+#various parameters
+
+#train and validate 
+
+#EVALUATION: LOSS AND ACCURACY PLOTTING
+
+#Classification report training set
+#Classification report validation set
+
+#Save model
+#load pretrained model
+# iterate over test loader
+
+#classification report test set
+
+
+
+
