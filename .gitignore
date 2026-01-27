@@ -11,4 +11,4 @@ env/
 results/
 cpp/
 BreastDCEDL_ISPY2_min_crop/
-metadata/*gz
+metadata/*
