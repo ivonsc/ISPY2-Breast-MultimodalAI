@@ -12,3 +12,7 @@ results/
 cpp/
 BreastDCEDL_ISPY2_min_crop/
 metadata/*
+
+metadata/*.tar.gz
+*.tar.gz
+
