@@ -40,5 +40,5 @@ class A1_MRI_CNN(nn.Module):
     
     def forward(self, x):
         f = self.forward_features(x)
-        logit = self.head[1:](f)  # usa Linear/ReLU/Dropout/Linear
+        logit = self.head[1:](f)  
         return logit

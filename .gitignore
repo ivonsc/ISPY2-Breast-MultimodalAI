@@ -15,4 +15,7 @@ metadata/*
 
 metadata/*.tar.gz
 *.tar.gz
+# Ignore notes
+notes.txt
+
 
