@@ -132,7 +132,7 @@ This results in a **9-channel input tensor** of shape:
 ---
 
 ## Repository Structure
-
+```text
 ISPY2-Breast-MultimodalAI/
 │
 ├── notebooks/
@@ -148,7 +148,7 @@ ISPY2-Breast-MultimodalAI/
 │        ├── transformations.py
 │
 ├── README.md
-
+```
 
 ---
 
