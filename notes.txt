@@ -36,6 +36,48 @@
 
 #classification report test set
 
+Epoch 0/59, lr=0.0001
+train loss: 0.6379 | val loss: 0.6276 | val AUC: 0.5592
+early stop counter: 0/5
+----------
+Epoch 1/59, lr=0.0001
+train loss: 0.6301 | val loss: 0.6273 | val AUC: 0.5588
+early stop counter: 1/5
+----------
+Epoch 2/59, lr=0.0001
+train loss: 0.6276 | val loss: 0.6265 | val AUC: 0.5574
+early stop counter: 2/5
+----------
+Epoch 3/59, lr=0.0001
+train loss: 0.6338 | val loss: 0.6264 | val AUC: 0.5583
+early stop counter: 3/5
+----------
+Epoch 4/59, lr=0.0001
+train loss: 0.6387 | val loss: 0.6322 | val AUC: 0.5569
+early stop counter: 4/5
+----------
+Epoch 5/59, lr=5e-05
+train loss: 0.6314 | val loss: 0.6265 | val AUC: 0.5592
+early stop counter: 5/5
+----------
+🛑 Early stopping at epoch 5. Best epoch: 0 | Best AUC: 0.5592
 
+probs min/mean/max: 0.2908179461956024 0.34423572788334855 0.39187243580818176
+
+len(train_set) = 784
+len(train_loader) = 98
+
+
+Multimodal AUC (test): 0.7262626262626263
+              precision    recall  f1-score   support
+
+         0.0       0.85      0.62      0.72        66
+         1.0       0.48      0.77      0.59        30
+
+    accuracy                           0.67        96
+   macro avg       0.67      0.69      0.65        96
+weighted avg       0.74      0.67      0.68        96
+
+AUC: 0.7247474747474747
 
 
