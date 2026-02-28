@@ -78,10 +78,106 @@ Multimodal AUC (test): 0.7262626262626263
    macro avg       0.67      0.69      0.65        96
 weighted avg       0.74      0.67      0.68        96
 
+CNN 
+AUC: 0.6226
+LR
+AUC: 0.57
 AUC: 0.7247474747474747
 
 A1: MRI CNN SL (baseline)
 
 1 párrafo
 1 figura opcional (arquitectura)
+
+✅ Figura 1 — Esquema del enfoque multimodal (OBLIGATORIA)
+
+La más importante del paper.
+
+📌 Qué muestra:
+
+Input MRI → CNN → embedding
+
+Input clínica → vector clínico
+
+Fusión (concatenación)
+
+Clasificador final (LR)
+
+Output: pCR
+
+📌 Cómo hacerla:
+
+PowerPoint / draw.io / Illustrator
+
+Exportar como PDF o PNG
+
+No código
+
+📌 Caption (ejemplo):
+
+Overview of the proposed multimodal framework integrating DCE-MRI and clinical features for pCR prediction.
+
+pCR (pathological complete response)
+For each patient (unique PID), baseline (T0) DCE-MRI was selected. From the dynamic series, the early post-contrast volume was extracted and preprocessed. Expert-provided tumor segmentation masks were used to define the region of interest. 
+The resulting images were used as input to a convolutional neural network to predict pathological complete response (pCR).
+
+Sí: en tu pipeline la máscara es 3D (un volumen con Z slices), pero tú no la metes como volumen 3D al CNN. La usas para decidir qué slices 2D (axiales) alimentan al modelo. 
+Eso es exactamente lo que se suele describir como 2.5D.
+
+Eso ya te dice que la máscara se está usando para acotar el rango de slices Z donde hay tumor.
+
+Aquí está lo clave del “2.5D”:
+
+Seleccionas varios slices 2D alrededor de pmask (centro ± vecinos).
+
+Para cada slice, extraes los 3 volúmenes d[0], d[1], d[2] en ese mismo k.
+
+Así conviertes algo 3D+multifase en un tensor 2D con muchos canales.
+
+“We used a 2.5D representation: for each patient we selected the central tumor slice based on the provided 3D tumor mask annotations (mask_start/mask_end) and extracted the central slice and its neighboring slices. For each selected slice, three DCE volumes (sorted acquisitions) were stacked as channels, resulting in a multi-channel 2D input (e.g., 3 slices × 3 volumes = 9 channels) for a 2D CNN.”
+
+subsection{Models}
+
+Models were optimized using Adam with an initial learning rate of 1e−4. Learning rate scheduling was performed using ReduceLROnPlateau based on validation AUC.
+Clinical variables achieved strong baseline performance (AUROC 0.725). Multimodal fusion provided marginal improvement (AUROC 0.726), while MRI-only performance was lower (AUROC 0.559)
+
+“We combined the clinical and imaging model predictions using a weighted average:
+
+𝑝
+𝑓
+𝑖
+𝑛
+𝑎
+𝑙
+=
+𝛼
+𝑝
+𝑐
+𝑙
+𝑖
+𝑛
++
+(
+1
+−
+𝛼
+)
+𝑝
+𝑖
+𝑚
+𝑔
+p
+final
+	​
+
+=αp
+clin
+	​
+
++(1−α)p
+img
+	​
+
+
+where α was selected on the validation set.”
 

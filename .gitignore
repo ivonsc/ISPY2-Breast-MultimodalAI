@@ -19,3 +19,6 @@ metadata/*.tar.gz
 notes.txt
 
 
+TESTING.ipynb
+ssl_results.py
+encoder_ssl_3.pth

@@ -1,6 +1,5 @@
 from mri_dataset import MRIPatient25DDataset
 from torch.utils.data import DataLoader
-from torchvision import transforms
 import pandas as pd
 from transformations import train_tf, val_tf
 # Load metadata and preprocess
