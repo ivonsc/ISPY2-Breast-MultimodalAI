@@ -132,22 +132,23 @@ This results in a **9-channel input tensor** of shape:
 ---
 
 ## Repository Structure
-
+```text
 ISPY2-Breast-MultimodalAI/
 │
 ├── notebooks/
-│ ├── A1_mri_cnn.ipynb # MRI-only model
-│ ├── A2_clinical_lr.ipynb # Clinical-only baseline
-│ ├── B_multimodal.ipynb # Multimodal fusion
+│        │ 
+│        ├── A1_mri_cnn.ipynb # MRI-only model
+│        ├── A2_clinical_lr.ipynb # Clinical-only baseline
+│        ├── B_multimodal.ipynb # Multimodal fusion
 │
 ├── models/
-│ ├── mri_cnn_model.py
+│        ├── mri_cnn_model.py
 │
 ├── preprocessing/
-│ ├── transformations.py
+│        ├── transformations.py
 │
 ├── README.md
-
+```
 
 ---
 
