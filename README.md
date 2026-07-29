@@ -15,7 +15,7 @@ In practice, clinical variables often provide strong baseline performance, and i
 Key question: How much additional predictive value does baseline DCE-MRI provide beyond established clinical features for pCR prediction?
 
 <p align="center">
-<img src="assets/clinical_context.png" width="900px">
+<img src="assets/clinical_context.png" width="600px">
 </p>
 
 This repository provides:
@@ -66,7 +66,7 @@ The imaging component includes:
 - Official train/validation/test splits
 
 <p align="center">
-<img src="assets/exp_pipeline.png" width="900px">
+<img src="assets/exp_pipeline.png" width="600px">
 </p>
 
 ### Clinical Data
@@ -110,7 +110,7 @@ This results in a **9-channel input tensor** of shape:
 (9, H, W)
 
 <p align="center">
-<img src="assets/mri_representation.png" width="900px">
+<img src="assets/mri_representation.png" width="600px">
 </p>
 
 ---
@@ -137,7 +137,7 @@ This results in a **9-channel input tensor** of shape:
 - Logistic regression trained on fused features
 
 <p align="center">
-<img src="assets/models.png" width="900px">
+<img src="assets/models.png" width="600px">
 </p>
 ---
 
@@ -175,19 +175,21 @@ This results in a **9-channel input tensor** of shape:
 ```text
 ISPY2-Breast-MultimodalAI/
 │
-├── notebooks/
-│        │ 
-│        ├── A1_mri_cnn.ipynb # MRI-only model
-│        ├── A2_clinical_lr.ipynb # Clinical-only baseline
-│        ├── B_multimodal.ipynb # Multimodal fusion
+├── A1_mri_cnn.ipynb          # Trains and evaluates the supervised MRI-only CNN baseline.
+├── A2_clinical_lr.ipynb      # Benchmarks classical machine learning models using clinical variables.
+├── B1_multimodal.ipynb       # Feature-level multimodal fusion (MRI embeddings + clinical features).
+├── B2_multimodal.ipynb       # Decision-level fusion combining MRI and clinical model predictions.
 │
-├── models/
-│        ├── mri_cnn_model.py
+├── dataloader.py             # PyTorch data loading utilities for training, validation, and testing.
+├── encoder.py                # CNN encoder and SimCLR self-supervised learning components.
+├── ionifti.py                # Utilities for loading and processing NIfTI MRI volumes.
+├── mri_cnn_model.py          # Definition of the supervised 2.5D CNN architecture for pCR prediction.
+├── mri_dataset.py            # Dataset class for constructing 9-channel MRI inputs from DCE-MRI.
+├── transformations.py        # MRI preprocessing and data augmentation pipeline.
 │
-├── preprocessing/
-│        ├── transformations.py
-│
-├── README.md
+├── README.md                 # Project overview, methodology, and reproducibility instructions.
+├── LICENSE                   # License information.
+└── .gitignore                # Files and directories excluded from version control.
 ```
 
 ---
