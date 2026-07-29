@@ -12,6 +12,12 @@ Pathologic complete response (pCR) after neoadjuvant therapy is a strong prognos
 
 In practice, clinical variables often provide strong baseline performance, and it remains unclear how much additional value imaging-based deep learning models contribute when evaluated rigorously at the patient level.
 
+Key question: How much additional predictive value does baseline DCE-MRI provide beyond established clinical features for pCR prediction?
+
+<p align="center">
+<img src="assets/clinical_context.png" width="900px">
+</p>
+
 This repository provides:
 
 - a **clean and reproducible benchmark** on I-SPY2,
@@ -45,24 +51,49 @@ Longitudinal imaging and post-treatment information are **not used**.
 
 ## Dataset
 
-### Imaging
-Data are derived from the **BreastDCEDL** resource:
+The experiments in this repository use the **BreastDCEDL-ISPY2** dataset, a standardized deep learning-ready dataset derived from the I-SPY2 clinical trial. It provides baseline DCE-MRI scans, tumor segmentations, harmonized clinical variables, and predefined train/validation/test splits for reproducible machine learning research.
 
-- Baseline DCE-MRI from the I-SPY2 cohort
-- Three DCE phases provided per patient
-- Official train / validation / test splits for pCR prediction
+### MRI Data
 
-Source:  
-https://github.com/naomifridman/BreastDCEDL
+The imaging component includes:
+
+- Baseline (T0) DCE-MRI scans
+- Three contrast phases:
+  - Pre-contrast
+  - Early post-contrast
+  - Late post-contrast
+- Tumor segmentation masks
+- Official train/validation/test splits
+
+<p align="center">
+<img src="assets/exp_pipeline.png" width="900px">
+</p>
 
 ### Clinical Data
-Baseline clinical and molecular annotations provided with I-SPY2, including:
+
+Baseline clinicopathologic variables include:
 
 - Age
 - Menopause status
-- Race indicators
-- Hormone receptor (HR) and HER2 status
-- Derived subtype indicators (e.g., triple-negative)
+- Race
+- HR status
+- HER2 status
+- Molecular subtype indicators
+- Pathologic complete response (pCR)
+
+### Data Access
+
+The original MRI and clinical data are **not redistributed** with this repository.
+
+They can be obtained from:
+
+- **BreastDCEDL GitHub**  
+  https://github.com/naomifridman/BreastDCEDL
+
+- **The Cancer Imaging Archive (TCIA)**  
+  https://www.cancerimagingarchive.net/analysis-result/breastdcedl_ispy2/
+
+Users should follow the corresponding data access policies and cite the original dataset publications when using these data.
 
 ---
 
@@ -78,6 +109,9 @@ This results in a **9-channel input tensor** of shape:
 
 (9, H, W)
 
+<p align="center">
+<img src="assets/mri_representation.png" width="900px">
+</p>
 
 ---
 
@@ -102,6 +136,9 @@ This results in a **9-channel input tensor** of shape:
 - MRI embedding concatenated with clinical features
 - Logistic regression trained on fused features
 
+<p align="center">
+<img src="assets/models.png" width="900px">
+</p>
 ---
 
 ## Training and Evaluation
@@ -119,6 +156,9 @@ This results in a **9-channel input tensor** of shape:
 - Evaluation performed at the **patient level**
 - Final results reported on the held-out test set
 
+<p align="center">
+<img src="assets/dataset_split.png" width="900px">
+</p>
 ---
 
 ## Results (Test AUROC)
@@ -160,6 +200,17 @@ Raw imaging and clinical data are **not redistributed** due to data usage agreem
 This repository provides scripts and notebooks required to reproduce all reported results from the original data sources.
 
 ---
+## References
+
+1. Fridman N, Solway B, Fridman T, Barnea I, Goldstein A.
+   **BreastDCEDL: A standardized deep learning-ready breast DCE-MRI dataset of 2,070 patients.**
+   Scientific Data (2026).
+   https://doi.org/10.1038/s41597-026-06589-6
+
+2. Fridman N, Goldstein A.
+   **Curated, Segmented, and Deep Learning-Optimized I-SPY2 MRI Dataset for Prediction of pCR, HR, and HER2 Status (BreastDCEDL-ISPY2).**
+   The Cancer Imaging Archive (TCIA), 2025.
+   https://doi.org/10.7937/42WQ-TH78
 
 ## License and Disclaimer
 
