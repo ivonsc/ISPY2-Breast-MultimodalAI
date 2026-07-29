@@ -13,7 +13,6 @@ Pathologic complete response (pCR) after neoadjuvant therapy is a strong prognos
 In practice, clinical variables often provide strong baseline performance, and it remains unclear how much additional value imaging-based deep learning models contribute when evaluated rigorously at the patient level.
 
 Key question: How much additional predictive value does baseline DCE-MRI provide beyond established clinical features for pCR prediction?
-
 <p align="center">
 <img src="assets/clinical_context.png" width="700px">
 </p>
@@ -64,7 +63,6 @@ The imaging component includes:
   - Late post-contrast
 - Tumor segmentation masks
 - Official train/validation/test splits
-
 <p align="center">
 <img src="assets/exp_pipeline.png" width="700px">
 </p>
@@ -105,10 +103,7 @@ Each patient is represented using a **2.5D multi-phase strategy**:
 - Axial slices: \( z-1, z, z+1 \)
 - Each slice contains 3 DCE phases
 
-This results in a **9-channel input tensor** of shape:
-
-(9, H, W)
-
+This results in a **9-channel input tensor** of shape: (9, H, W)
 <p align="center">
 <img src="assets/mri_representation.png" width="700px">
 </p>
@@ -135,7 +130,6 @@ This results in a **9-channel input tensor** of shape:
 - 256-dimensional MRI embedding extracted after global average pooling
 - MRI embedding concatenated with clinical features
 - Logistic regression trained on fused features
-
 <p align="center">
 <img src="assets/models.png" width="700px">
 </p>
@@ -155,7 +149,6 @@ This results in a **9-channel input tensor** of shape:
 - Metric: **AUROC**
 - Evaluation performed at the **patient level**
 - Final results reported on the held-out test set
-
 <p align="center">
 <img src="assets/dataset_split.png" width="700px">
 </p>
