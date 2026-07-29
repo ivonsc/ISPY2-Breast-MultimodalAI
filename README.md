@@ -15,7 +15,7 @@ In practice, clinical variables often provide strong baseline performance, and i
 Key question: How much additional predictive value does baseline DCE-MRI provide beyond established clinical features for pCR prediction?
 
 <p align="center">
-<img src="assets/clinical_context.png" width="500px">
+<img src="assets/clinical_context.png" width="700px">
 </p>
 
 This repository provides:
@@ -66,7 +66,7 @@ The imaging component includes:
 - Official train/validation/test splits
 
 <p align="center">
-<img src="assets/exp_pipeline.png" width="500px">
+<img src="assets/exp_pipeline.png" width="700px">
 </p>
 
 ### Clinical Data
@@ -110,7 +110,7 @@ This results in a **9-channel input tensor** of shape:
 (9, H, W)
 
 <p align="center">
-<img src="assets/mri_representation.png" width="500px">
+<img src="assets/mri_representation.png" width="700px">
 </p>
 
 ---
@@ -137,7 +137,7 @@ This results in a **9-channel input tensor** of shape:
 - Logistic regression trained on fused features
 
 <p align="center">
-<img src="assets/models.png" width="500px">
+<img src="assets/models.png" width="700px">
 </p>
 ---
 
@@ -157,7 +157,7 @@ This results in a **9-channel input tensor** of shape:
 - Final results reported on the held-out test set
 
 <p align="center">
-<img src="assets/dataset_split.png" width="900px">
+<img src="assets/dataset_split.png" width="700px">
 </p>
 ---
 
